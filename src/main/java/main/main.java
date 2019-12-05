@@ -1,7 +1,7 @@
 package main;
 
 /**
- * 程序
+ * 程
  */
 public class main {
     public static void main(String args[]){
