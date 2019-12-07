@@ -5,9 +5,9 @@ public class Summary {
     private String  summary;
     private String date;
 
-public Summary(){
-    super();
-}
+    public Summary(){
+        super();
+    }
     public String getId() {
         return id;
     }

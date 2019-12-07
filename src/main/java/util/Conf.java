@@ -5,15 +5,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
-public class DataCenterConf {
+public class Conf {
     private String url;
     private int cycle;
     private String databaseUrl;
     private String databaseUsername;
     private String databasePassword;
-    private volatile static DataCenterConf conf;
+    private volatile static Conf conf;
 
-    private DataCenterConf(){
+    private Conf(){
         Properties properties=new Properties();
         InputStream inputStream=Object.class.getResourceAsStream("/conf.properties");
         InputStreamReader inputStreamReader=null;
@@ -31,11 +31,11 @@ public class DataCenterConf {
         this.databasePassword=properties.getProperty("databasePassword");
     }
 
-    public static DataCenterConf GetConf(){
+    public static Conf GetConf(){
         if(conf==null){
-            synchronized (DataCenterConf.class){
+            synchronized (Conf.class){
                 if(conf==null){
-                    conf=new DataCenterConf();
+                    conf=new Conf();
                 }
             }
         }
