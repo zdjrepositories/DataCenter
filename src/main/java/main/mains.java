@@ -7,7 +7,7 @@ import util.MD5;
 /**
  * 程序入口1234
  */
-public class main {
+public class mains {
 
 //        InputStream is = Resources.getResourceAsStream("mybatis");
 //
@@ -19,13 +19,11 @@ public class main {
 //
 //        System.out.println(summary.getDate());
 //        session.close();
-
-
-
         RequestServiceimpl requestServiceimpl=new RequestServiceimpl();
         String str=requestServiceimpl.doGet( Conf.GetConf().getUrl());
-        MD5.getMD5(str);
-        System.out.println( str);
+
+
+        System.out.println(str);
 //        String subject = "测试邮件";
 //        String content = "test test test。。。测试内容。。。这是从DataCenter发来的。";
 //        String to = "zdjyx126@126.com";
