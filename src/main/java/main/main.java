@@ -22,10 +22,10 @@ public class main {
 
 
 
-    RequestServiceimpl requestServiceimpl=new RequestServiceimpl();
-    String str=requestServiceimpl.doGet( Conf.GetConf().getUrl());
-
-    //    System.out.println( str);
+        RequestServiceimpl requestServiceimpl=new RequestServiceimpl();
+        String str=requestServiceimpl.doGet( Conf.GetConf().getUrl());
+        MD5.getMD5(str);
+        System.out.println( str);
 //        String subject = "测试邮件";
 //        String content = "test test test。。。测试内容。。。这是从DataCenter发来的。";
 //        String to = "zdjyx126@126.com";
