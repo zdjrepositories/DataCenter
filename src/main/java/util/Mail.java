@@ -30,7 +30,7 @@ public class Mail{
     public Mail(){
         super();
         Properties properties=new Properties();
-        InputStream inputStream=Object.class.getResourceAsStream("/conf.properties");
+        InputStream inputStream=Object.class.getResourceAsStream("/mail.properties");
         InputStreamReader inputStreamReader=null;
 
         try { inputStreamReader=new InputStreamReader(inputStream,"UTF-8");
