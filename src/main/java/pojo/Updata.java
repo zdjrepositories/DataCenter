@@ -1,12 +1,12 @@
 package pojo;
 
 public class Updata {
-    private int id;
+    private Integer id;
     private String date;
-    private int bu;
-    private int cat;
-    private int subcat;
-    private int range;
-    private int prducts;
+    private Integer bu;
+    private Integer cat;
+    private Integer subcat;
+    private Integer range;
+    private Integer prducts;
 
 }

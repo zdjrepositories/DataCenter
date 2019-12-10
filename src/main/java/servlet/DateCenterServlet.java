@@ -18,7 +18,7 @@ import java.io.InputStream;
  */
 public class DateCenterServlet {
     public void run() throws IOException {
-                InputStream is = Resources.getResourceAsStream("mybatis");
+        InputStream is = Resources.getResourceAsStream("mybatis");
 
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
 
