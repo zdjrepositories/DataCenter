@@ -27,4 +27,14 @@ public class RangeQueueImpl implements RangeQueue {
         return null;
     }
 
+    /**
+     * 添加一个Range ID
+     *
+     * @param rangId
+     */
+    @Override
+    public void addRange(String rangId) {
+
+    }
+
 }
