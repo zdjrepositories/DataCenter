@@ -12,13 +12,14 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import service.RequestService;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class RequestServiceimpl {
+public class RequestServiceimpl implements RequestService {
 
     public static String doGet(String url) {
         CloseableHttpClient httpClient = null;
