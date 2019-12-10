@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class RequestServiceimpl implements RequestService {
+public class RequestServiceImpl implements RequestService {
 
     public static String doGet(String url) {
         CloseableHttpClient httpClient = null;

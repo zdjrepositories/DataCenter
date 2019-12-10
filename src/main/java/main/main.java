@@ -1,6 +1,6 @@
 package main;
 
-import service.impl.RequestServiceimpl;
+import service.impl.RequestServiceImpl;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public class main {
 //
 //        System.out.println(summary.getDate());
 //        session.close();
-                RequestServiceimpl requestServiceimpl=new RequestServiceimpl();
+                RequestServiceImpl requestServiceimpl=new RequestServiceImpl();
                 // String str=requestServiceimpl.doGet( Conf.GetConf().getUrl());
 
 
