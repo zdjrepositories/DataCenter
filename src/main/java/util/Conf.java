@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+/**
+ * 配置文件读取
+ */
 public class Conf {
     private String url;
     private int cycle;
@@ -13,6 +16,9 @@ public class Conf {
     private String databasePassword;
     private volatile static Conf conf;
 
+    /**
+     * 单例方式创建类
+     */
     private Conf(){
         Properties properties=new Properties();
         InputStream inputStream=Object.class.getResourceAsStream("/conf.properties");
@@ -31,6 +37,10 @@ public class Conf {
         this.databasePassword=properties.getProperty("databasePassword");
     }
 
+    /**
+     * 获取类实例
+     * @return
+     */
     public static Conf GetConf(){
         if(conf==null){
             synchronized (Conf.class){
