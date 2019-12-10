@@ -48,6 +48,7 @@ public class Mail{
      * @param content
      */
     public  void sendMail( String content){
+        System.out.println(this.subject);
         Email email = new SimpleEmail();
         email.setHostName(_SMTP_ADDRESS_);
         email.setSmtpPort(_SMTP_PORT_SSL_);
@@ -64,6 +65,4 @@ public class Mail{
             e.printStackTrace();
         }
     }
-
-
 }
