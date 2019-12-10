@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5 {
     public String MD5;
-    public  String getMD5(String plainText) {
+    public  static String getMD5(String plainText) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");//获取MD5实例
             md.update((plainText+plainText.length()).getBytes());//传入原文的byte类型值

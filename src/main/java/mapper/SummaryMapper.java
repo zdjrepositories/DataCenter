@@ -11,9 +11,9 @@ public interface SummaryMapper {
 
     /**
      * 通过摘要编号查询
-     * @param
+     * @param id
      * @return
      */
-    public Summary selectSummary();
+    public Summary selectSummary(String id);
 
 }
