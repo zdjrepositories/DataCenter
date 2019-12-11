@@ -1,6 +1,6 @@
 package Queue.impl;
 
-import Queue.ProductQueue;
+import pojo.ProductQueue;
 
 import java.util.LinkedList;
 import java.util.Queue;

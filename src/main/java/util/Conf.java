@@ -9,11 +9,14 @@ import java.util.Properties;
  * 配置文件读取
  */
 public class Conf {
-    private String url;
     private int cycle;
-    private String databaseUrl;
-    private String databaseUsername;
-    private String databasePassword;
+    private String starttime;
+    private String categoryId;
+    private String range;
+    private String node;
+    private String subNode;
+    private String products;
+
     private volatile static Conf conf;
 
     /**
@@ -30,11 +33,14 @@ public class Conf {
             e.printStackTrace();
         }
 
-        this.url=properties.getProperty("url");
         this.cycle=Integer.parseInt(properties.getProperty("cycle")); ;
-        this.databaseUrl=properties.getProperty("databaseUrl");
-        this.databaseUsername=properties.getProperty("databaseUsername");
-        this.databasePassword=properties.getProperty("databasePassword");
+        this.starttime=properties.getProperty("starttime");
+        this.categoryId=properties.getProperty("categoryId");
+        this.range=properties.getProperty("range");
+        this.node=properties.getProperty("node");
+        this.subNode=properties.getProperty("subNode");
+        this.products=properties.getProperty("products");
+
     }
 
     /**
@@ -52,24 +58,17 @@ public class Conf {
         return conf;
     }
 
-
     @Override
     public String toString() {
-        return "GetConf{" +
-                "url='" + url + '\'' +
-                ", cycle=" + cycle +
-                ", databaseUrl='" + databaseUrl + '\'' +
-                ", databaseUsername='" + databaseUsername + '\'' +
-                ", databasePassword='" + databasePassword + '\'' +
+        return "Conf{" +
+                "cycle=" + cycle +
+                ", starttime='" + starttime + '\'' +
+                ", categoryId='" + categoryId + '\'' +
+                ", range='" + range + '\'' +
+                ", node='" + node + '\'' +
+                ", subNode='" + subNode + '\'' +
+                ", products='" + products + '\'' +
                 '}';
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public int getCycle() {
@@ -80,27 +79,59 @@ public class Conf {
         this.cycle = cycle;
     }
 
-    public String getDatabaseUrl() {
-        return databaseUrl;
+    public String getStarttime() {
+        return starttime;
     }
 
-    public void setDatabaseUrl(String databaseUrl) {
-        this.databaseUrl = databaseUrl;
+    public void setStarttime(String starttime) {
+        this.starttime = starttime;
     }
 
-    public String getDatabaseUsername() {
-        return databaseUsername;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setDatabaseUsername(String databaseUsername) {
-        this.databaseUsername = databaseUsername;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getDatabasePassword() {
-        return databasePassword;
+    public String getRange() {
+        return range;
     }
 
-    public void setDatabasePassword(String databasePassword) {
-        this.databasePassword = databasePassword;
+    public void setRange(String range) {
+        this.range = range;
+    }
+
+    public String getNode() {
+        return node;
+    }
+
+    public void setNode(String node) {
+        this.node = node;
+    }
+
+    public String getSubNode() {
+        return subNode;
+    }
+
+    public void setSubNode(String subNode) {
+        this.subNode = subNode;
+    }
+
+    public String getProducts() {
+        return products;
+    }
+
+    public void setProducts(String products) {
+        this.products = products;
+    }
+
+    public static Conf getConf() {
+        return conf;
+    }
+
+    public static void setConf(Conf conf) {
+        Conf.conf = conf;
     }
 }
