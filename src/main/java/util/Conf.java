@@ -17,7 +17,7 @@ public class Conf {
     private String subNode;
     private String products;
 
-    private volatile static Conf conf;
+    private volatile static Conf conf=null;
 
     /**
      * 单例方式创建类
@@ -40,18 +40,16 @@ public class Conf {
         this.node=properties.getProperty("node");
         this.subNode=properties.getProperty("subNode");
         this.products=properties.getProperty("products");
-
     }
-
     /**
      * 获取类实例
      * @return
      */
-    public static Conf GetConf(){
-        if(conf==null){
+    public static Conf getConf() {
+        if(conf==null ||conf.equals("")){
             synchronized (Conf.class){
-                if(conf==null){
-                    conf=new Conf();
+                if(conf ==null||conf.equals("")){
+                    conf= new Conf();
                 }
             }
         }
@@ -127,11 +125,6 @@ public class Conf {
         this.products = products;
     }
 
-    public static Conf getConf() {
-        return conf;
-    }
 
-    public static void setConf(Conf conf) {
-        Conf.conf = conf;
-    }
+
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namesapce:理解成实现类的全路径(包名+类名) -->
+<mapper namespace="CategoryMapper" >
+    <!-- id:方法名
+        parameterType:定义参数类型
+        resultType:返回值类型.
+
+        如果方法返回值是list,在resultType中写List的泛型,因为mybatis
+        对jdbc封装,一行一行读取数据
+    -->
+
+    <insert id="insertCategory" parameterType="pojo.Category">
+        insert into Category values(#{id},#{update_time},#{category_name},#{origin_name},#{picture_id},#{picture_desc},#{bu_id})
+    </insert>
+</mapper>

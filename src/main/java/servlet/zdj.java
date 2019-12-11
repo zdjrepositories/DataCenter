@@ -1,8 +1,6 @@
-package servlet.impl;
+package servlet;
 
-import servlet.DateCenterServlet;
-
-public class RangeServlet  {
+public class zdj {
 
 //    public void run() throws IOException {
 //        Map<String,Object> map=new HashMap<String, Object>();

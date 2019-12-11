@@ -1,4 +1,4 @@
-package Queue;
+package queue;
 
 public interface DataCenterQueue {
     /**
@@ -15,4 +15,7 @@ public interface DataCenterQueue {
      * 添加一个iD
      */
     public void addItem(String id);
+
+    public String toString();
+    public int size();
 }

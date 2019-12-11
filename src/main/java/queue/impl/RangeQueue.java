@@ -1,10 +1,8 @@
-package Queue.impl;
+package queue.impl;
 
 
-import Queue.DataCenterQueue;
+import queue.DataCenterQueue;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -14,6 +12,11 @@ import java.util.Queue;
 public class RangeQueue implements DataCenterQueue {
     private  Queue<String> rangeQueue;
     private  Integer rangesum;
+
+    public RangeQueue(){
+        super();
+        init();
+    }
     /**
      * 初始化队列
      */
@@ -42,6 +45,11 @@ public class RangeQueue implements DataCenterQueue {
         rangesum++;
     }
 
+    @Override
+    public int size() {
+        return  rangeQueue.size();
+
+    }
 
 
 }

@@ -1,7 +1,4 @@
-package pojo;
-
-import java.util.LinkedList;
-import java.util.Queue;
+package queue;
 
 public interface ProductQueue {
     /**

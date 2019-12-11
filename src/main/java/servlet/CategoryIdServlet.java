@@ -1,34 +1,36 @@
 package servlet;
 
+import queue.DataCenterQueue;
+import queue.DataCenterQueueFactory;
 import com.alibaba.fastjson.JSONObject;
-import service.impl.SummaryServiceImpl;
-import servlet.DateCenterServlet;
 import util.Conf;
 import util.HttpClient;
-import util.MD5;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.text.Format;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CategoryIdServlet  {
 
+    DataCenterQueue categoryIdQueue= DataCenterQueueFactory.getQueue("CategoryId");
 
-
-    public void run() throws UnsupportedEncodingException {
-        String url=Conf.GetConf().getCategoryId();
+    public static void run() throws IOException { System.out.println("asdasn");
+        RangeServlet rangeServlet=new RangeServlet();
+        String url=Conf.getConf().getCategoryId();
         String body = "{\"getFilter\": {\"filterBy\": \"Category\"}}";
         String data=HttpClient.doPost(url,null , body);
-        System.out.println(data);
+        System.out.println("asdasn");
         //MD5.getMD5(data);
         JSONObject object = JSONObject.parseObject(data);
         JSONObject respObj = object.getJSONObject("getFilterResponse");
-        for (int i = 0; i < respObj.getJSONObject("return").getJSONArray("ranges").size(); i++) {
-            System.out.println(JSONObject.parseObject(respObj.getJSONObject("return").getJSONArray("ranges").get(i).toString()).getLongValue("pictureId"));
+
+        for (int i = 0; i < respObj.getJSONArray("return").size(); i++) {
+            String str=JSONObject.parseObject(respObj.getJSONArray("return").get(i).toString()).getLongValue("valueId")+"";
+            System.out.println(JSONObject.parseObject(respObj.getJSONArray("return").get(i).toString()).getLongValue("valueId"));
+            //categoryIdQueue.addItem(str);
+            rangeServlet.run(str);
         }
+
+
     }
 
 

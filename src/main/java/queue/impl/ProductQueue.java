@@ -1,12 +1,9 @@
-package Queue.impl;
+package queue.impl;
 
-import Queue.DataCenterQueue;
 
-import java.util.Queue;
+import queue.DataCenterQueue;
 
-public class NodeQueue implements DataCenterQueue {
-    private static Queue<String> nodequeue;
-
+public class ProductQueue implements DataCenterQueue {
 
     /**
      * 初始化队列
@@ -32,5 +29,10 @@ public class NodeQueue implements DataCenterQueue {
     @Override
     public void addItem(String id) {
 
+    }
+
+    @Override
+    public int size() {
+        return 0;
     }
 }

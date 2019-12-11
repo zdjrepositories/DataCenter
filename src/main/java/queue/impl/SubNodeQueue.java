@@ -1,4 +1,4 @@
-package Queue.impl;
+package queue.impl;
 
 public class SubNodeQueue {
 }
