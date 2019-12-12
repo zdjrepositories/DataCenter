@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 
 public class Category {
     private Long id;
-	private Date update_time;
     private String category_name;
 	private String origin_name;
 	private String picture_id;
@@ -16,7 +15,6 @@ public class Category {
     public String toString() {
         return "category{" +
                 "id=" + id +
-                ", update_time='" + update_time + '\'' +
                 ", category_name='" + category_name + '\'' +
                 ", origin_name='" + origin_name + '\'' +
                 ", picture_id='" + picture_id + '\'' +
@@ -31,14 +29,6 @@ public class Category {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUpdate_time() {
-        return new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new java.util.Date());
-    }
-
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
     }
 
     public String getCategory_name() {

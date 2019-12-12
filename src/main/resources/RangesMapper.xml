@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namesapce:理解成实现类的全路径(包名+类名) -->
+<mapper namespace="RangesMapper" >
+    <insert id="insertCategory" parameterType="pojo.Ranges">
+        insert into `Ranges` values (#{id},#{range_name},#{origin_name},#{picture_id},#{picture_desc},#{short_des},#{category_id})ON DUPLICATE KEY UPDATE id=#{id},range_name=#{range_name},origin_name=#{origin_name},picture_id=#{picture_id},picture_desc=#{picture_desc},short_des=#{short_des},category_id=#{category_id}
+    </insert>
+</mapper>

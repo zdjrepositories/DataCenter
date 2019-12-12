@@ -9,12 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class SQLSession {
-
-
-
     static InputStream is;
     static SqlSessionFactory factory;
-    static SqlSession session;
+    private  SqlSession session;
     public SqlSession getSqlsession() throws IOException {
         if (is==null||factory==null || session==null) {
             is = Resources.getResourceAsStream("mybatis");

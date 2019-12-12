@@ -3,16 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namesapce:理解成实现类的全路径(包名+类名) -->
-<mapper namespace="CategoryMapper" >
+<mapper namespace="CategoryIdMapper" >
     <!-- id:方法名
         parameterType:定义参数类型
         resultType:返回值类型.
-
         如果方法返回值是list,在resultType中写List的泛型,因为mybatis
         对jdbc封装,一行一行读取数据
     -->
 
-    <insert id="insertCategory" parameterType="pojo.Category">
-        insert into Category values(#{id},#{category_name},#{origin_name},#{picture_id},#{picture_desc},#{bu_id})ON DUPLICATE KEY UPDATE id=#{id},category_name=#{category_name},origin_name=#{origin_name},picture_id=#{picture_id},picture_desc=#{picture_desc},bu_id=#{bu_id}
+    <insert id="insertCategoryId" parameterType="pojo.CategoryId">
+        insert into `category_id` values (#{category_id},#{count},#{category_name},#{original_name}) ON DUPLICATE KEY UPDATE category_id=#{category_id},count=#{count},category_name=#{category_name},original_name=#{original_name}
     </insert>
 </mapper>
