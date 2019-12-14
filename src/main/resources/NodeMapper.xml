@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namesapce:理解成实现类的全路径(包名+类名) -->
+<mapper namespace="NodeMapper" >
+    <select id="selectNode" resultType="String">
+        select DISTINCT oid from Node
+    </select>
+    <insert id="insertNode" parameterType="pojo.Node">
+        insert into `Node` values (#{oid},#{parent_oid},#{name},#{description},#{has_Configurable},#{has_Document},#{has_Product},#{has_RichText},#{commercial_References},#{sub_Nodes},#{visible}) ON DUPLICATE KEY UPDATE oid=#{oid},parent_oid=#{parent_oid},name=#{name},description=#{description},has_Configurable=#{has_Configurable},has_Document=#{has_Document},has_Product=#{has_Product},has_RichText=#{has_RichText},commercial_References=#{commercial_References},sub_Nodes=#{sub_Nodes},visible=#{visible}
+    </insert>
+</mapper>

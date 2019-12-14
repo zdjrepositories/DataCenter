@@ -11,7 +11,9 @@
         如果方法返回值是list,在resultType中写List的泛型,因为mybatis
         对jdbc封装,一行一行读取数据
     -->
-
+    <select id="selectCategory" resultType="String">
+        select DISTINCT id from Category
+    </select>
     <insert id="insertCategory" parameterType="pojo.Category">
         insert into Category values(#{id},#{category_name},#{origin_name},#{picture_id},#{picture_desc},#{bu_id})ON DUPLICATE KEY UPDATE id=#{id},category_name=#{category_name},origin_name=#{origin_name},picture_id=#{picture_id},picture_desc=#{picture_desc},bu_id=#{bu_id}
     </insert>

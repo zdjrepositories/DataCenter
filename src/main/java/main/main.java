@@ -1,9 +1,14 @@
 package main;
 
 import service.CategoryService;
+import service.NodetreebeanService;
 import service.RangesService;
+import util.SQLSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 
@@ -14,19 +19,41 @@ public class main {
 
 
     public static void main(String[] args) throws IOException {
+        //获取CategoryID
        CategoryService categoryService = new CategoryService();
-       Queue qategoryQueue = categoryService.run();
+       Queue rangesQueue = categoryService.run();
+       //获取Ranges
        RangesService rangeService = new RangesService();
-       for (int i = 0; i < qategoryQueue.size(); i++) {
-            rangeService.run((String) qategoryQueue.poll());
+       for (int i = 0; i < rangesQueue.size(); i++) {
+            rangeService.run((String) rangesQueue.poll());
        }
+        SQLSession sqlSession = new SQLSession();
+        List rangesQueues=sqlSession.getSqlsession().selectList("NodeMapper.selectNode");
 
-//       String str="{\"pictureId\":\"205785\",\"ranges\":{\"pictureDescription\":\"IH, IHP, ITA  时间管理及照明控制元件\",\"rangeId\":\"62198\",\"pictureId\":\"545849\",\"rangeName\":\"IH, IHP, ITA  时间管理及照明控制元件\",\"id\":\"126703756\",\"shortDescription\":\"时间管理及照明控制元件\",\"rangeOriginalName\":\"Acti9 IH, IHP, ITA\"},\"categoryOriginalName\":\"Lighting & Time Management\",\"id\":\"86179\"}\n";
-//        JSONObject object = JSONObject.parseObject(str);
-//        //JSONObject respObj = object.getJSONObject("getRangesOfCatResponse").getJSONObject("return");
+       //获取Nodetree，得到Node
+
+        NodetreebeanService nodetreebeanService=new NodetreebeanService();
+
+
+//        for (int i = 0; i < rangesQueue.size(); i++) {
+//            System.out.println(rangesQueue.get(i));
+//          //  nodetreebeanService.run((String) rangesQueue.get(i));
+//       }
 //
-//        JSONObject objectw=object.getJSONObject("ranges");
-//
+        nodetreebeanService.run("2013");
+        nodetreebeanService.run("60123");
+        nodetreebeanService.run("60126");
+        nodetreebeanService.run("61011");
+        nodetreebeanService.run("61604");
+        nodetreebeanService.run("61742");
+        nodetreebeanService.run("61790");
+        nodetreebeanService.run("61853");
+        nodetreebeanService.run("62292");
+        nodetreebeanService.run("62295");
+        nodetreebeanService.run("62319");
+
+        nodetreebeanService.run("817");
+
 //        System.out.println("测试："+objectw.getLongValue("rangeId"));
     }
 }

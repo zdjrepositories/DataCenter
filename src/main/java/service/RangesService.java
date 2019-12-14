@@ -16,12 +16,20 @@ import java.util.Queue;
 
 public class RangesService implements DataCenterService {
     //存储Category id
-    private Queue<String> rangeQueue = new LinkedList<String>();
+    private static Queue<String> rangeQueue = new LinkedList<String>();
     //存储Category id数量
-    private Long rangeNum = 0L;
+    private static Long rangeNum = 0L;
     //数据存储
     private String data=null;
     private Ranges ranges;
+
+    public  Queue<String> getRangeQueue() {
+        return rangeQueue;
+    }
+
+    public Long getRangeNum() {
+        return rangeNum;
+    }
 
     public Queue run(Queue categoryQueue) {
         if (categoryQueue != null || categoryQueue.size() > 0)
@@ -107,8 +115,8 @@ public class RangesService implements DataCenterService {
                     if (!"".equals(respObjs) && respObjs.size() > 0) {
                         System.out.println(respObj.getJSONArray("ranges").size());
                         for (int i = 0; i < respObjs.size(); i++) {
-                            System.out.println("当前Range" +respObj.getLongValue("rangeId"));
                             respObj=respObjs.getJSONObject(i);
+                            System.out.println("当前Range：" +respObj.getLongValue("rangeId"));
                             ranges.setId(respObj.getLongValue("rangeId"));
                             ranges.setPicture_desc(respObj.getString("pictureDescription"));
                             ranges.setShort_des(respObj.getString("shortDescription"));
@@ -120,7 +128,7 @@ public class RangesService implements DataCenterService {
                             //System.out.println(range.toString());
                             SQLSession sqlSession = new SQLSession();
                             try {
-                                sqlSession.getSqlsession().insert("RangesMapper.insertCategory", ranges);
+                                sqlSession.getSqlsession().insert("RangesMapper.insertRanges", ranges);
                                 sqlSession.getSqlsession().commit();
                                 System.out.println("Range成功添加：" + ranges.getId());
                             } catch (IOException e) {
@@ -130,7 +138,7 @@ public class RangesService implements DataCenterService {
                     }
                 }else {
                     respObj=respObj.getJSONObject("ranges");
-                    System.out.println("当前Ranges" + respObj.getLongValue("rangeId"));
+                    System.out.println("当前Ranges：" + respObj.getLongValue("rangeId"));
                     ranges.setId(respObj.getLongValue("rangeId"));
                     ranges.setPicture_desc(respObj.getString("pictureDescription"));
                     ranges.setShort_des(respObj.getString("shortDescription"));
@@ -142,7 +150,7 @@ public class RangesService implements DataCenterService {
                     //System.out.println(range.toString());
                     SQLSession sqlSession = new SQLSession();
                     try {
-                        sqlSession.getSqlsession().insert("RangesMapper.insertCategory", ranges);
+                        sqlSession.getSqlsession().insert("RangesMapper.insertRanges", ranges);
                        sqlSession.getSqlsession().commit();
                         System.out.println("Range成功添加：" + ranges.getId());
                     } catch (IOException e) {
@@ -165,7 +173,7 @@ public class RangesService implements DataCenterService {
             JSONObject respObj = object.getJSONObject("getRangesOfCatResponse").getJSONObject("return");
             //System.out.println(respObj.toString());
             Category category = new Category();
-            System.out.println("当前Category" + category.getId());
+            System.out.println("当前Category：" + respObj.getLongValue("id"));
             category.setId(respObj.getLongValue("id"));
             category.setCategory_name(respObj.getString("categoryName"));
             category.setOrigin_name(respObj.getString("categoryOriginalName"));

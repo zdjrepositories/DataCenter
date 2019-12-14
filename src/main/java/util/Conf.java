@@ -13,7 +13,7 @@ public class Conf {
     private String starttime;
     private String categoryId;
     private String range;
-    private String node;
+    private String nodetreebean;
     private String subNode;
     private String products;
 
@@ -37,7 +37,7 @@ public class Conf {
         this.starttime=properties.getProperty("starttime");
         this.categoryId=properties.getProperty("categoryId");
         this.range=properties.getProperty("range");
-        this.node=properties.getProperty("node");
+        this.nodetreebean=properties.getProperty("nodetreebean");
         this.subNode=properties.getProperty("subNode");
         this.products=properties.getProperty("products");
     }
@@ -63,7 +63,7 @@ public class Conf {
                 ", starttime='" + starttime + '\'' +
                 ", categoryId='" + categoryId + '\'' +
                 ", range='" + range + '\'' +
-                ", node='" + node + '\'' +
+                ", nodetreebean='" + nodetreebean+ '\'' +
                 ", subNode='" + subNode + '\'' +
                 ", products='" + products + '\'' +
                 '}';
@@ -101,12 +101,12 @@ public class Conf {
         this.range = range;
     }
 
-    public String getNode() {
-        return node;
+    public String getNodetreebean() {
+        return nodetreebean;
     }
 
-    public void setNode(String node) {
-        this.node = node;
+    public void setNodetreebean(String nodetreebean) {
+        this.nodetreebean = nodetreebean;
     }
 
     public String getSubNode() {

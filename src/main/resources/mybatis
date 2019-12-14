@@ -14,7 +14,7 @@
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://192.168.37.172:3306/datacenter?useUnicode=true&amp;characterEncoding=utf-8"/>
+                <property name="url" value="jdbc:mysql://192.168.37.180:3306/datacenter?useUnicode=true&amp;characterEncoding=utf-8"/>
                 <property name="username" value="%"/>
                 <property name="password" value="123456789"/>
             </dataSource>
@@ -25,5 +25,7 @@
        <mapper resource="CategoryMapper.xml"></mapper>
        <mapper resource="RangesMapper.xml"></mapper>
        <mapper resource="CategoryIdMapper.xml"></mapper>
+       <mapper resource="NodetreebeanMapper.xml"></mapper>
+       <mapper resource="NodeMapper.xml"></mapper>
    </mappers>
 </configuration>

@@ -98,14 +98,14 @@ public class Token {
             int index=result.indexOf("\"access_token\" : \"")+18;
             String str=result.substring(index,index+28);
 
-
+            System.out.println("token获取成功："+str);
             token=str;
 
         }
     }
     public static String getToken() {
         Token.setToken();
-        //System.out.println("token获取成功："+token);
+
         return token ;
     }
 }
